@@ -220,7 +220,7 @@ public class LocalPackageContainer: BasePackageContainer, CustomStringConvertibl
         currentToolsVersion: ToolsVersion,
         fs: FileSystem = localFileSystem
     ) {
-        assert(URL.scheme(identifier.path) == nil)
+        assert(URL.scheme(identifier.path) == nil, "Dependencies fetched from a path must not contain a schema")
         self.fs = fs
         super.init(
             identifier,
